@@ -8,25 +8,38 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState(''); // 'success' ou 'error'
     const router = useRouter();
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://127.0.0.1:5000/api/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-        });
+        setMessage('');  // Limpar mensagens anteriores
+        setMessageType('');
 
-        const data = await response.json();
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, email, password }),
+            });
 
-        if (response.ok) {
-            setMessage('Cadastro realizado com sucesso!');
-            router.push('/login');
-        } else {
-            setMessage(data.message);
+            const data = await response.json();
+
+            if (response.ok) {
+                setMessage('Cadastro realizado com sucesso!');
+                setMessageType('success');
+                setTimeout(() => {
+                    router.push('/login');
+                }, 2000); // Redireciona para a página de login após 2 segundos
+            } else {
+                setMessage(data.message || 'Ocorreu um erro ao realizar o cadastro.');
+                setMessageType('error');
+            }
+        } catch (error) {
+            setMessage('Erro ao conectar ao servidor.');
+            setMessageType('error');
         }
     };
 
@@ -58,7 +71,11 @@ export default function Register() {
                     />
                     <button type="submit">Registrar</button>
                 </form>
-                {message && <p className={styles.message}>{message}</p>}
+                {message && (
+                    <p className={`${styles.message} ${messageType === 'success' ? styles.successMessage : styles.errorMessage}`}>
+                        {message}
+                    </p>
+                )}
             </div>
         </div>
     );
