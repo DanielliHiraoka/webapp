@@ -10,21 +10,27 @@ export default function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://127.0.0.1:5000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        });
+        
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.ok) {
-            setMessage('Login realizado com sucesso!');
-            router.push('/');
-        } else {
-            setMessage(data.message);
+            if (response.ok) {
+                setMessage('Login realizado com sucesso!');
+                router.push('/');
+            } else {
+                setMessage(data.message);
+            }
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
+            setMessage('Ocorreu um erro ao fazer login. Tente novamente.');
         }
     };
 
