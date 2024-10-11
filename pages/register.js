@@ -7,6 +7,8 @@ export default function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState(''); // Campo para o telefone
+    const [preferences, setPreferences] = useState(''); // Campo para preferências de adoção
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState(''); // 'success' ou 'error'
     const router = useRouter();
@@ -22,7 +24,7 @@ export default function Register() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, email, password }),
+                body: JSON.stringify({ username, email, password, phone, preferences }), // Incluindo o telefone e as preferências
             });
 
             const data = await response.json();
@@ -31,8 +33,8 @@ export default function Register() {
                 setMessage('Cadastro realizado com sucesso!');
                 setMessageType('success');
                 setTimeout(() => {
-                    router.push('/login');
-                }, 2000); // Redireciona para a página de login após 2 segundos
+                    router.push('/profile'); // Redirecionar para a página de perfil
+                }, 2000); // Redireciona após 2 segundos
             } else {
                 setMessage(data.message || 'Ocorreu um erro ao realizar o cadastro.');
                 setMessageType('error');
@@ -46,11 +48,11 @@ export default function Register() {
     return (
         <div className={styles.container}>
             <div className={styles.formWrapper}>
-                <h1>Registro de Usuário</h1>
+                <h1>Cadastro de Adoção</h1>
                 <form onSubmit={handleRegister}>
                     <input
                         type="text"
-                        placeholder="Username"
+                        placeholder="Nome de Usuário"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
@@ -64,9 +66,24 @@ export default function Register() {
                     />
                     <input
                         type="password"
-                        placeholder="Password"
+                        placeholder="Senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="tel"
+                        placeholder="Telefone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                    />
+                    <textarea
+                        placeholder="Preferências de Adoção"
+                        value={preferences}
+                        onChange={(e) => setPreferences(e.target.value)}
+                        rows={5} // Define o número de linhas do textarea
+                        className={styles.textareaField}
                         required
                     />
                     <button type="submit">Registrar</button>

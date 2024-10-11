@@ -1,7 +1,8 @@
 import React from 'react';
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image'; // Importação do componente Image do Next.js
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -12,28 +13,74 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* Barra de navegação */}
+      <nav className={styles.navbar}>
+        <div className={styles.navbarBrand}>Impacta</div>
+        <ul className={styles.navbarMenu}>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/register">Cadastre-se</Link></li>
+          <li><Link href="/login">Login</Link></li>
+        </ul>
+      </nav>
+
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>Bem vindo a Loja Online do Grupo Impacta</a>
+          Bem-vindo Comunidade de Adoção Grupo Impacta
         </h1>
 
-        <div className={styles.grid}>
-          <Link href="/register">
-            <div className={styles.card}>
-              <h2>Cadastrar &rarr;</h2>
-              <p>Seu primeiro acesso?</p>
-              <p>Faça o seu cadastro.</p>
-            </div>
-          </Link>
-
-          <Link href="/login">
-            <div className={styles.card}>
-              <h2>Login &rarr;</h2>
-              <p>Já tem uma conta?</p> <p> Faça o seu login.</p>
-            </div>
-          </Link>
+        {/* Imagem de destaque */}
+        <div className={styles.hero}>
+          <Image 
+            src="/images/loja-online.jpg" 
+            alt="Loja Online" 
+            width={600} 
+            height={400} 
+            className={styles.heroImage} 
+          />
         </div>
+
+        {/* Seção de produtos em destaque */}
+        <section className={styles.featuredSection}>
+          <h2>Gatinhos em Destaque</h2>
+          <div className={styles.grid}>
+            <div className={styles.card}>
+              <Image 
+                src="/images/produto1.jpg" 
+                alt="Produto 1" 
+                width={300} 
+                height={200} 
+                className={styles.productImage} 
+              />
+              <h3>Gato Charmoso &rarr;</h3>
+              <p>Traga a fofura para sua casa com este gato adorável! Seu olhar penetrante e charme inegável farão qualquer amante de felinos se apaixonar. Ideal para alegrar o ambiente ou presentear alguém especial. Tamanho perfeito para abraços e carinhos!</p>
+            </div>
+
+            <div className={styles.card}>
+              <Image 
+                src="/images/produto2.jpg" 
+                alt="Produto 2" 
+                width={300} 
+                height={200} 
+                className={styles.productImage} 
+              />
+              <h3>Gato Fofo &rarr;</h3>
+              <p>Esse gato creme é o companheiro perfeito para seus momentos de relaxamento. Ele é macio e super confortável. Seu corpinho com design minimalista, oferece conforto e estilo. Adote essa fofura hoje mesmo!</p>
+            </div>
+
+            <div className={styles.card}>
+              <Image 
+                src="/images/produto3.jpg" 
+                alt="Produto 3" 
+                width={300} 
+                height={200} 
+                className={styles.productImage} 
+              />
+              <h3>Gato Pelúcia &rarr;</h3>
+              <p>Este elegante gato preto e branco é um item indispensável para quem ama felinos! Com suas cores sofisticada e detalhes cuidadosos, ele trará um toque de charme e elegância à sua casa. Ótima companhia para qualquer momento.</p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
-  )
+  );
 }
