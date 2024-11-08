@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/Profile.module.css';  // Certifique-se de que o CSS está correto
+import styles from '../styles/Profile.module.css';  
 
 export default function Profile() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [preferences, setPreferences] = useState('');
-    const [address, setAddress] = useState('');  // Novo campo de endereço
-    const [city, setCity] = useState('');        // Novo campo de cidade
-    const [state, setState] = useState('');      // Novo campo de estado
-    const [postalCode, setPostalCode] = useState(''); // Novo campo de CEP
+    const [address, setAddress] = useState('');  
+    const [city, setCity] = useState('');        
+    const [state, setState] = useState('');      
+    const [postalCode, setPostalCode] = useState(''); 
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
@@ -29,10 +29,10 @@ export default function Profile() {
                     setEmail(data.email);
                     setPhone(data.phone);
                     setPreferences(data.preferences);
-                    setAddress(data.address);       // Exibir o endereço
-                    setCity(data.city);             // Exibir a cidade
-                    setState(data.state);           // Exibir o estado
-                    setPostalCode(data.postal_code); // Exibir o CEP
+                    setAddress(data.address);       
+                    setCity(data.city);             
+                    setState(data.state);           
+                    setPostalCode(data.postal_code); 
                 } else {
                     if (response.status === 401) {
                         setError('Usuário não autenticado. Redirecionando para o login...');
@@ -58,7 +58,7 @@ export default function Profile() {
                 },
                 credentials: 'include',
                 body: JSON.stringify({
-                    username, email, phone, preferences, address, city, state, postalCode  // Enviar novos campos
+                    username, email, phone, preferences, address, city, state, postalCode  
                 }),
             });
 
@@ -104,28 +104,28 @@ export default function Profile() {
                         onChange={(e) => setPhone(e.target.value)}
                         required
                     />
-                    <label>Endereço:</label> {/* Campo de endereço */}
+                    <label>Endereço:</label> 
                     <input
                         className={styles.inputField}
                         type="text"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                     />
-                    <label>Cidade:</label> {/* Campo de cidade */}
+                    <label>Cidade:</label> 
                     <input
                         className={styles.inputField}
                         type="text"
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                     />
-                    <label>Estado:</label> {/* Campo de estado */}
+                    <label>Estado:</label> 
                     <input
                         className={styles.inputField}
                         type="text"
                         value={state}
                         onChange={(e) => setState(e.target.value)}
                     />
-                    <label>CEP:</label> {/* Campo de CEP */}
+                    <label>CEP:</label> 
                     <input
                         className={styles.inputField}
                         type="text"

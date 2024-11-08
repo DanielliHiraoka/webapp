@@ -30,11 +30,14 @@ export default function Home() {
           <li><Link href="/">Home</Link></li>
           {isAuthenticated ? (
             <>
+              <li><Link href="/catalog">Animais Disponíveis</Link></li>
               <li><Link href="/profile">Minha Conta</Link></li>
-              <li><a href="#" onClick={() => {
-                localStorage.removeItem('user_id'); // Deslogar
-                setIsAuthenticated(false); // Atualiza o estado
-              }}>Logout</a></li>
+              <li>
+                <a href="#" onClick={() => {
+                  localStorage.removeItem('user_id'); 
+                  setIsAuthenticated(false); 
+                }}>Logout</a>
+              </li>
             </>
           ) : (
             <>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/Login.module.css';  // Usando o CSS personalizado
+import styles from '../styles/Login.module.css';  
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem('user_id', data.user_id); // Armazena o ID do usuário
         setMessage('Login realizado com sucesso!');
-        setTimeout(() => router.push('/'), 1500); // Redireciona para a Home após 1.5 segundos
+        setTimeout(() => router.push('/'), 1500); // Redireciona para a Home
       } else {
         setMessage(data.message || 'Erro desconhecido!');
       }

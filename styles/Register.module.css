@@ -10,8 +10,8 @@
 }
 
 .formWrapper {
-    width: 100%; /* Largura total */
-    max-width: 800px; /* Limita a largura máxima */
+    width: 100%; 
+    max-width: 800px; 
     padding: 2rem;
     background-color: white;
     border-radius: 8px;
@@ -19,13 +19,13 @@
 }
 
 .formWrapper h1 {
-    text-align: left; /* Alinhado à esquerda */
+    text-align: left; 
     margin-bottom: 1.5rem;
     color: #333;
 }
 
 .formWrapper input,
-.formWrapper textarea { /* Aplica estilo a ambos os campos */
+.formWrapper textarea { 
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
@@ -34,8 +34,8 @@
     font-size: 1rem;
 }
 
-.textareaField { /* Estilo específico para o textarea */
-    resize: vertical; /* Permitir redimensionar verticalmente */
+.textareaField { 
+    resize: vertical; 
 }
 
 .formWrapper button {
@@ -43,7 +43,7 @@
     padding: 0.8rem;
     border-radius: 4px;
     border: none;
-    background-color: #001f3f; /* Azul marinho */
+    background-color: #001f3f; 
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -51,7 +51,7 @@
 }
 
 .formWrapper button:hover {
-    background-color: #005bb5; /* Azul mais escuro */
+    background-color: #005bb5; 
 }
 
 .message {

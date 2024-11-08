@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #001f3f; /* Azul marinho */
+  background-color: #fc7777; 
   color: white;
 }
 
@@ -33,13 +33,13 @@
 }
 
 .navbarMenu li a:hover {
-  background-color: #001533; /* Tom mais escuro de azul marinho */
+  background-color: #001533; 
   border-radius: 4px;
 }
 
 .main {
   min-height: 100vh;
-  padding: 2rem 0; /* Diminuído para ajustar espaçamento */
+  padding: 2rem 0; 
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -52,11 +52,11 @@
   line-height: 1.15;
   font-size: 3rem;
   text-align: center;
-  margin-bottom: 1rem; /* Ajuste no espaçamento */
+  margin-bottom: 1rem; 
 }
 
 .hero {
-  margin-bottom: 2rem; /* Ajuste do espaçamento da imagem hero */
+  margin-bottom: 2rem; 
 }
 
 .featuredSection {
@@ -80,16 +80,16 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  max-width: 350px; /* Ajuste no tamanho do cartão */
+  max-width: 350px; 
 }
 
 .card:hover {
-  border-color: #001f3f; /* Azul marinho */
-  box-shadow: 0 4px 14px rgba(0, 31, 63, 0.1); /* Sombra com azul marinho */
+  border-color: #001f3f; 
+  box-shadow: 0 4px 14px rgba(0, 31, 63, 0.1); 
 }
 
 .productImage {
-  width: 100%; /* Tamanho da imagem para 100% do card */
+  width: 100%; 
   height: auto;
-  border-radius: 8px; /* Arredondamento das imagens */
+  border-radius: 8px; 
 }
