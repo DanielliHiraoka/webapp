@@ -1,0 +1,88 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input,
+.textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.textarea {
+  height: 100px;
+  resize: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.submitButton {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancelButton {
+  background-color: #ccc;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+.cancelButton:hover {
+  background-color: #999;
+}
+
+.errorContainer {
+  text-align: center;
+  color: red;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 20px;
+}
+.successMessage {
+  margin: 20px 0;
+  padding: 10px;
+  color: #4CAF50;
+  background-color: #e6ffe6;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+}
+

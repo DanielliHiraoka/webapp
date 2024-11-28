@@ -50,17 +50,25 @@ const Catalog = () => {
 
   return (
     <div className={styles.container}>
+      {/* Botão de voltar para a tela principal */}
       <Link href="/" passHref>
         <button className={styles.backButton}>Voltar para a Tela Principal</button>
       </Link>
+      
       <h1>Gatos Disponíveis para Adoção</h1>
+      
       <div className={styles.catalog}>
         {cats.map((cat) => (
           <div key={cat.id} className={styles.catCard}>
+            {/* Imagem do gato */}
             <img src={cat.image} alt={cat.name} className={styles.catImage} />
+            
+            {/* Nome e descrição do gato */}
             <h2 className={styles.catName}>{cat.name}</h2>
             <p className={styles.catDescription}>Idade: {cat.age} anos</p>
             <p className={styles.catDescription}>{cat.description}</p>
+            
+            {/* Botão de adoção com redirecionamento para o formulário */}
             <Link href={`/adoptionForm?id=${cat.id}`} passHref>
               <button className={styles.adoptButton}>Adotar {cat.name}</button>
             </Link>

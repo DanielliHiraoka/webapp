@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/Login.module.css';  
+import styles from '../styles/Login.module.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -15,20 +15,27 @@ export default function Login() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
-        credentials: 'include',
+        credentials: 'include', // Permite o envio de cookies com a requisição
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('user_id', data.user_id); // Armazena o ID do usuário
+        // Salva o ID do usuário no localStorage
+        localStorage.setItem('user_id', data.user_id);
+        console.log('User ID armazenado:', localStorage.getItem('user_id'));
+
         setMessage('Login realizado com sucesso!');
-        setTimeout(() => router.push('/'), 1500); // Redireciona para a Home
+        setTimeout(() => {
+          // Redireciona sempre para a Home
+          router.push('/');
+        }, 1500);
       } else {
-        setMessage(data.message || 'Erro desconhecido!');
+        setMessage(data.error || 'Erro desconhecido!');
       }
     } catch (error) {
       setMessage('Erro na conexão com o servidor.');
+      console.error('Erro ao tentar logar:', error);
     }
   };
 
